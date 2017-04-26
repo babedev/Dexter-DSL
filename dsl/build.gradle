@@ -8,7 +8,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -32,7 +32,7 @@ repositories {
 }
 
 
-version = "0.1.0"
+version = "0.1.1"
 group = "com.github.babedev.dexter.dsl"
 
 install {
@@ -67,10 +67,10 @@ install {
     }
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
 bintray {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
