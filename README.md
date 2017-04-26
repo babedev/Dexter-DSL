@@ -39,3 +39,10 @@ runtimePermission {
     }
 }
 ```
+
+Libraries used in this project
+------------------------------
+
+* [Dexter][1]
+
+[1]: https://github.com/Karumi/Dexter
