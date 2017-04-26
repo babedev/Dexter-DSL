@@ -13,8 +13,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
@@ -31,4 +29,57 @@ dependencies {
 
 repositories {
     mavenCentral()
+}
+
+
+version = "0.1.0"
+group = "com.github.babedev.dexter.dsl"
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'jar'
+
+                name 'Alternative SignalR library for modern Android'
+                url "https://github.com/babedev/Dexter-DSL"
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'babedev'
+                        name 'babedev'
+                        email 'babedroid@gmail.com'
+                    }
+                }
+                scm {
+                    connection "https://github.com/babedev/Dexter-DSL"
+                    developerConnection "https://github.com/babedev/Dexter-DSL"
+                    url "https://github.com/babedev/Dexter-DSL"
+                }
+            }
+        }
+    }
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "Dexter-DSL"
+        websiteUrl = "https://github.com/babedev/Dexter-DSL"
+        vcsUrl = "https://github.com/babedev/Dexter-DSL"
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
 }
