@@ -15,7 +15,7 @@ import com.karumi.dexter.listener.single.PermissionListener
 
 inline fun Fragment.runtimePermission(permission: Permission.() -> Unit) {
     val dexter = Dexter.withActivity(activity)
-    com.github.babedev.dexter.dsl.Permission(dexter).apply(permission)
+    Permission(dexter).apply(permission)
 }
 
 inline fun FragmentActivity.runtimePermission(permission: Permission.() -> Unit) {
@@ -74,11 +74,9 @@ class Permission(val dexter: DexterBuilder.Permission) {
     }
 }
 
-class Listener {
-
-    var granted: (response: PermissionGrantedResponse) -> Unit = {}
-    var denied: (response: PermissionDeniedResponse) -> Unit = {}
-    var rationaleShouldBeShown: (permission: PermissionRequest, token: PermissionToken) -> Unit = { _, _ -> }
+class Listener(var granted: (response: PermissionGrantedResponse) -> Unit = {},
+               var denied: (response: PermissionDeniedResponse) -> Unit = {},
+               var rationaleShouldBeShown: (permission: PermissionRequest, token: PermissionToken) -> Unit = { _, token -> token.continuePermissionRequest() }) {
 
     fun granted(onGranted: (response: PermissionGrantedResponse) -> Unit) {
         granted = onGranted
@@ -93,10 +91,8 @@ class Listener {
     }
 }
 
-class MultipleListener {
-
-    var checked: (report: MultiplePermissionsReport) -> Unit = {}
-    var rationaleShouldBeShown: (permissions: MutableList<PermissionRequest>, token: PermissionToken) -> Unit = { _, _ -> }
+class MultipleListener(var checked: (report: MultiplePermissionsReport) -> Unit = {},
+                       var rationaleShouldBeShown: (permissions: MutableList<PermissionRequest>, token: PermissionToken) -> Unit = { _, token -> token.continuePermissionRequest() }) {
 
     fun checked(onChecked: (report: MultiplePermissionsReport) -> Unit) {
         checked = onChecked

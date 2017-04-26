@@ -23,10 +23,6 @@ class MainActivity : AppCompatActivity() {
                     denied {
                         toast("Permission denied")
                     }
-
-                    rationaleShouldBeShown { _, token ->
-                        token.continuePermissionRequest()
-                    }
                 }
             }
         }
@@ -36,10 +32,6 @@ class MainActivity : AppCompatActivity() {
                 permissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CALL_PHONE) {
                     checked {
                         toast("Permission checked")
-                    }
-
-                    rationaleShouldBeShown { _, token ->
-                        token.continuePermissionRequest()
                     }
                 }
             }
