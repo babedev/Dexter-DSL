@@ -1,6 +1,6 @@
 # Dexter DSL
 [![Download](https://api.bintray.com/packages/babedev/maven/Dexter-DSL/images/download.svg) ](https://bintray.com/babedev/maven/Dexter-DSL/_latestVersion)
-[![Build Status](https://travis-ci.org/babedev/Signaler.svg?branch=master)](https://travis-ci.org/babedev/Signaler)
+[![Build Status](https://travis-ci.org/babedev/Dexter-DSL.svg?branch=master)](https://travis-ci.org/babedev/Dexter-DSL)
 
 Dexter runtime permission with Kotlin DSL style
 
