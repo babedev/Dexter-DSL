@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
   ..
-  compile 'com.github.babedev.dexter.dsl:dsl:0.1.0'
+  compile 'com.github.babedev.dexter.dsl:dsl:0.1.2'
   ..
 }
 ```
