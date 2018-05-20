@@ -1,8 +1,8 @@
 package com.github.babedev.dexter.dsl
 
 import android.app.Activity
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.DexterBuilder
 import com.karumi.dexter.MultiplePermissionsReport
@@ -19,6 +19,16 @@ inline fun Fragment.runtimePermission(permission: Permission.() -> Unit) {
 }
 
 inline fun FragmentActivity.runtimePermission(permission: Permission.() -> Unit) {
+    val dexter = Dexter.withActivity(this)
+    Permission(dexter).apply(permission)
+}
+
+inline fun android.support.v4.app.Fragment.runtimePermission(permission: Permission.() -> Unit) {
+    val dexter = Dexter.withActivity(activity)
+    Permission(dexter).apply(permission)
+}
+
+inline fun android.support.v4.app.FragmentActivity.runtimePermission(permission: Permission.() -> Unit) {
     val dexter = Dexter.withActivity(this)
     Permission(dexter).apply(permission)
 }

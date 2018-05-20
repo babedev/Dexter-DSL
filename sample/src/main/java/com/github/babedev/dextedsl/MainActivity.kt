@@ -1,11 +1,11 @@
 package com.github.babedev.dextedsl
 
 import android.Manifest
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.github.babedev.dexter.dsl.runtimePermission
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
             runtimePermission {
                 permission(Manifest.permission.READ_EXTERNAL_STORAGE) {
                     granted {
-                        toast("Permission granted")
+                        Toast.makeText(this@MainActivity, "Permission granted", Toast.LENGTH_LONG).show()
                     }
 
                     denied {
-                        toast("Permission denied")
+                        Toast.makeText(this@MainActivity, "Permission denied", Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             runtimePermission {
                 permissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CALL_PHONE) {
                     checked {
-                        toast("Permission checked")
+                        Toast.makeText(this@MainActivity, "Permission checked", Toast.LENGTH_LONG).show()
                     }
                 }
             }

@@ -15,14 +15,14 @@ repositories {
 
 dependencies {
   ..
-  compile 'com.github.babedev.dexter.dsl:dsl:0.1.0'
+  compile 'com.github.babedev.dexter.dsl:dsl:1.0.0'
   ..
 }
 ```
 
 Sample
 --------
-```
+```Kotlin
 runtimePermission {
     permission(Manifest.permission.READ_EXTERNAL_STORAGE) {
         granted {
