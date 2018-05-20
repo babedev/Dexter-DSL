@@ -22,7 +22,7 @@ dependencies {
 
 Sample
 --------
-```Kotlin
+```kotlin
 runtimePermission {
     permission(Manifest.permission.READ_EXTERNAL_STORAGE) {
         granted {
