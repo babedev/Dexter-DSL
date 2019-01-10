@@ -23,16 +23,6 @@ inline fun FragmentActivity.runtimePermission(permission: Permission.() -> Unit)
     Permission(dexter).apply(permission)
 }
 
-inline fun android.support.v4.app.Fragment.runtimePermission(permission: Permission.() -> Unit) {
-    val dexter = Dexter.withActivity(activity)
-    Permission(dexter).apply(permission)
-}
-
-inline fun android.support.v4.app.FragmentActivity.runtimePermission(permission: Permission.() -> Unit) {
-    val dexter = Dexter.withActivity(this)
-    Permission(dexter).apply(permission)
-}
-
 inline fun Activity.runtimePermission(permission: Permission.() -> Unit) {
     val dexter = Dexter.withActivity(this)
     Permission(dexter).apply(permission)
