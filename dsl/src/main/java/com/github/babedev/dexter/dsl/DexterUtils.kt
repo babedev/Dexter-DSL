@@ -28,7 +28,7 @@ inline fun Activity.runtimePermission(permission: Permission.() -> Unit) {
     Permission(dexter).apply(permission)
 }
 
-class Permission(val dexter: DexterBuilder.Permission) {
+class Permission(private val dexter: DexterBuilder.Permission) {
 
     fun permission(permission: String, listener: Listener.() -> Unit) {
         dexter.withPermission(permission)
