@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         minSdkVersion 15
@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    api 'com.karumi:dexter:6.0.0'
+    api 'com.karumi:dexter:6.2.2'
     api "androidx.appcompat:appcompat:$jetpack_version"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -34,7 +34,7 @@ repositories {
 }
 
 
-version = "1.0.2"
+version = "1.0.3"
 group = "com.github.babedev.dexter.dsl"
 
 install {
